@@ -4,7 +4,7 @@ echo "This software is licensed under GPL v3 and is provided as-is with no guara
 echo ""
 
 # PROMPT
-read -p "Set your brightness (0 = normal, 1 = boosted)" ANSWER0
+read -p "Set your brightness (0 = normal, 1 = boosted) " ANSWER0
 case "$ANSWER0" in
 	0)
 		xgamma -rgamma 1.0 -ggamma 1.0 -bgamma 1.0
