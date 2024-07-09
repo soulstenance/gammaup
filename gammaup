@@ -1,10 +1,10 @@
 #!/bin/bash
-echo "Boost you screen's display brightness."
+echo "Boost your screen's display brightness."
 echo "This software is licensed under GPL v3 and is provided as-is with no guarantee of suitability for a particular purpose. Use at your own risk."
 echo ""
 
 # PROMPT
-read -p "Set your brightness (0 = normal, 1 = boosted) " ANSWER0
+read -p "Set your brightness (0 = normal, 1 = boosted, i = show current status, q = exit) " ANSWER0
 case "$ANSWER0" in
 	0)
 		xgamma -rgamma 1.0 -ggamma 1.0 -bgamma 1.0
@@ -13,6 +13,9 @@ case "$ANSWER0" in
 	1)
 	    xgamma -rgamma 1.5 -ggamma 1.5 -bgamma 1.5
 		echo "Gamma set to boosted values"
+		;;
+	[iI])
+	    xgamma
 		;;
 	*)
 		echo "Aborted."
