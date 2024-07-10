@@ -3,19 +3,38 @@ echo "Boost your screen's display brightness."
 echo "This software is licensed under GPL v3 and is provided as-is with no guarantee of suitability for a particular purpose. Use at your own risk."
 echo ""
 
+# VARIABLES
+BLUE_BOLD=`echo -en "\e[1;34m"`
+NORMAL=`echo -en "\e[0m"`
+
 # PROMPT
-read -p "Set your brightness (0 = normal, 1 = boosted, i = show current status, q = exit) " ANSWER0
+echo "${BLUE_BOLD}Options (default is 0):${NORMAL}"
+echo "0 - normal (1.0)"
+echo "1 - moderate (1.25)"
+echo "2 - high (1.5)"
+echo "3 - extreme (1.75)"
+echo "i - show current status"
+echo "q - quit"
+read -p "Set your brightness level " ANSWER0
 case "$ANSWER0" in
-	0)
+	0 | "")
 		xgamma -rgamma 1.0 -ggamma 1.0 -bgamma 1.0
-		echo "Gamma set to standard values"
+		echo "Gamma set to standard values."
 		;;
 	1)
-	    xgamma -rgamma 1.5 -ggamma 1.5 -bgamma 1.5
-		echo "Gamma set to boosted values"
+		xgamma -rgamma 1.25 -ggamma 1.25 -bgamma 1.25
+		echo "Gamma set to moderate values."
+		;;
+	2 | 11)
+		xgamma -rgamma 1.5 -ggamma 1.5 -bgamma 1.5
+		echo "Gamma set to high values."
+		;;
+	3 | 111)
+		xgamma -rgamma 1.75 -ggamma 1.75 -bgamma 1.75
+		echo "Gamma set to extreme values."
 		;;
 	[iI])
-	    xgamma
+		xgamma
 		;;
 	*)
 		echo "Aborted."
