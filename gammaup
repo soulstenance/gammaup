@@ -8,14 +8,14 @@ BLUE_BOLD=`echo -en "\e[1;34m"`
 NORMAL=`echo -en "\e[0m"`
 
 # PROMPT
-echo "${BLUE_BOLD}Options (default is 0):${NORMAL}"
+echo "${BLUE_BOLD}Options (default is 0)${NORMAL}"
 echo "0 - normal (1.0)"
 echo "1 - moderate (1.25)"
 echo "2 - high (1.5)"
 echo "3 - extreme (1.75)"
 echo "i - show current status"
 echo "q - quit"
-read -p "Set your brightness level " ANSWER0
+read -p "Set your brightness level: " ANSWER0
 case "$ANSWER0" in
 	0 | "")
 		xgamma -rgamma 1.0 -ggamma 1.0 -bgamma 1.0
@@ -34,6 +34,7 @@ case "$ANSWER0" in
 		echo "Gamma set to extreme values."
 		;;
 	[iI])
+		echo "Current gamma:"
 		xgamma
 		;;
 	*)
